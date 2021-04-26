@@ -21,7 +21,7 @@ public class Field extends JPanel {
 
 
     // Динамический список скачущих мячей
-    private ArrayList<BouncingBall> balls = new ArrayList<BouncingBall>(10);
+    private ArrayList<BouncingBalls> balls = new ArrayList<BouncingBalls>(10);
 
 
 
@@ -53,7 +53,7 @@ public class Field extends JPanel {
         super.paintComponent(g);
         Graphics2D canvas = (Graphics2D) g;
         // Последовательно запросить прорисовку от всех мячей из списка
-        for (BouncingBall ball : balls) {
+        for (BouncingBalls ball : balls) {
             ball.paint(canvas);
         }
 
@@ -64,7 +64,7 @@ public class Field extends JPanel {
         //Заключается в добавлении в список нового экземпляра BouncingBall
         // Всю инициализацию положения, скорости, размера, цвета
         // BouncingBall выполняет сам в конструкторе
-        balls.add(new BouncingBall(this));
+        balls.add(new BouncingBalls(this));
 
     }
 
@@ -110,7 +110,7 @@ public class Field extends JPanel {
 
     // Синхронизированный метод проверки, может ли мяч двигаться
     // (не включен ли режим паузы?)
-    public synchronized void canMove(BouncingBall ball) throws
+    public synchronized void canMove(BouncingBalls ball) throws
             InterruptedException {
 
         if (paused) {
